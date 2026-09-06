@@ -1,0 +1,27 @@
+{
+	"schemaVersion": 1,
+	"id": "serverdiscovery",
+	"version": "${version}",
+	"name": "Server Discovery",
+	"description": "Adds a Discovery button to the Multiplayer screen: browse servers pulled from a remote server list, see their ping, IP and icon, then Join instantly or Add them to your normal server list.",
+	"authors": [
+		"Xaria"
+	],
+	"contact": {},
+	"license": "CC0-1.0",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.xaria.serverdiscovery.ServerDiscoveryMod"
+		]
+	},
+	"mixins": [
+		"serverdiscovery.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

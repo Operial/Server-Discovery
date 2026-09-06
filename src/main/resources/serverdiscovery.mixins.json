@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.xaria.serverdiscovery.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"MultiplayerScreenMixin",
+		"AbstractButtonInvoker"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

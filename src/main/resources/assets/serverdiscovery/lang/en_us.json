@@ -1,0 +1,19 @@
+{
+  "serverdiscovery.button.discovery": "Discovery",
+  "serverdiscovery.screen.title": "Server Discovery",
+  "serverdiscovery.button.join": "Join",
+  "serverdiscovery.button.add": "Add",
+  "serverdiscovery.button.added": "Added!",
+  "serverdiscovery.button.refresh": "Refresh",
+  "serverdiscovery.button.exit": "Exit",
+  "serverdiscovery.search.hint": "Search servers...",
+  "serverdiscovery.sort.players": "Sort: Players",
+  "serverdiscovery.sort.name": "Sort: Name",
+  "serverdiscovery.sort.random": "Sort: Random",
+  "serverdiscovery.tab.online": "Online (%s)",
+  "serverdiscovery.tab.offline": "Offline (%s)",
+  "serverdiscovery.status.loading": "Loading servers...",
+  "serverdiscovery.status.checking": "Checking servers... %s of %s (updates live)",
+  "serverdiscovery.status.empty": "No servers found.",
+  "serverdiscovery.status.error": "Could not load the server list. Check your connection or the URLs in config/serverdiscovery.json"
+}
