@@ -84,6 +84,19 @@ regardless. Several follow-on bugs from this same area, also fixed:
   for the actual ping (`SlpClient.pingResolved(...)`) - a hung lookup can
   now only ever tie up a DNS-pool thread, not one everything else
   depends on to get pinged at all.
+- A related but distinct bug, found from a log where the directory fetch,
+  the default thumbnail fetch, and the custom API *all* failed with
+  "connect timed out" at the exact same moment - right as ~2200 pings
+  were saturating `NetworkExecutor`, which `api/HttpUtil.java`'s
+  `HttpClient` was *also* configured to use for its own callback
+  dispatch. `HttpClient` is asynchronous, but it still needs its executor
+  to run completion callbacks ("the connection succeeded, continue") -
+  with every worker thread tied up in a blocking ping `Socket` call, those
+  callbacks could queue behind thousands of them and never get a turn
+  within the timeout, even if the TCP connection itself went through
+  fine elsewhere. `HttpUtil` now has its own small, dedicated pool (8
+  threads - a handful of HTTP fetches never need more), fully isolated
+  from ping and DNS traffic.
 
 Also fixed: `NativeImage.read` only understands PNG, confirmed by a real
 crash log - it threw `Bad PNG Signature` trying to decode the default
